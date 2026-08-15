@@ -1,0 +1,17 @@
+{
+  "name": "agentic-cicd-factory-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Site statique du parcours Agentic CI/CD Factory (Astro Starlight).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.41.7",
+    "astro": "7.2.2"
+  }
+}

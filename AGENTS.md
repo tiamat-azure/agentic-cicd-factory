@@ -10,8 +10,21 @@ chapitres + setup) suit un fil rouge unique, la "Agentic CI/CD Factory" - voir
 
 ## Commands
 
-Aucun build : contenu markdown statique. Vérification des liens morts via CI
+Le contenu pédagogique est du markdown statique. Vérification des liens morts via CI
 (`.github/workflows/check-links.yml`), déclenchée sur push/PR vers `main`.
+
+Le site web du parcours (`site/`) est le seul artefact buildé, avec **npm** :
+
+```sh
+cd site
+npm ci                   # dépendances (Node 22+, package-lock.json commité)
+npm run dev              # aperçu local avec rechargement à chaud
+npm run build            # sortie statique dans site/dist/
+```
+
+Deux outils, deux périmètres disjoints : **`uv` pour le code Python des chapitres**,
+**`npm` pour `site/` uniquement**. Ne jamais introduire Node hors de `site/`, ni `pip`
+nulle part.
 
 Le code des chapitres est en Python et **`uv` est le seul outil de build/exécution
 autorisé** (jamais `pip`, `python -m venv`, `poetry`, `conda`) :
@@ -38,7 +51,21 @@ NN-titre-reel/      # un dossier par chapitre (01 à 12), titre explicite du suj
 ressources/
   prd/PRD.md        # raisonnement sur l'organisation du repo (branches vs dossiers)
   prd/01-PRD.md     # raisonnement sur le parcours en 12 chapitres (fil rouge)
+site/               # site Astro Starlight - AUCUN contenu pédagogique, voir site/README.md
 ```
+
+### Le site (`site/`)
+
+Le site lit `../NN-*/**` au build via un loader Astro (`site/src/loaders/chapitres.ts`) :
+**il ne duplique jamais le contenu**. Conséquences à respecter :
+
+- Corriger une leçon = éditer le fichier du chapitre, jamais un fichier de `site/`.
+- Ajouter un chapitre = créer `NN-titre/README.md` ; aucune config du site à toucher (un
+  chapitre sans `README.md` est publié comme page « à venir »).
+- Le loader dérive du markdown : titre (premier `#`), livrable (`> Livrable : **...**`),
+  durée (`Durée estimée : **...**`), gate (table des 5 gates dans le loader). Ne pas
+  casser ces conventions d'écriture dans les `README.md` de chapitre.
+- Toute page issue de `solutions/` est repliée automatiquement côté site.
 
 ### Les 12 chapitres et leur livrable (fil rouge Agentic CI/CD Factory)
 
@@ -89,7 +116,8 @@ rouge - pas d'exercices isolés. Raisonnement complet : `ressources/prd/01-PRD.m
 
 ## Tests
 
-Pas de tests automatisés au-delà de la CI de liens morts. Si un fil rouge applicatif
+La CI vérifie les liens morts et construit le site (`npm run build` échoue si un chapitre
+casse le loader) : c'est le filet de sécurité du contenu. Si un fil rouge applicatif
 (`app/`) est ajouté (scénario C du `ressources/prd/PRD.md`), ses exemples de code devront
 être exécutés en CI.
 
@@ -99,3 +127,6 @@ Pas de tests automatisés au-delà de la CI de liens morts. Si un fil rouge appl
   explose - voir `ressources/prd/PRD.md`, scénario B).
 - Les dossiers de chapitre doivent toujours porter un titre réel (ex. `05-llm-agnostic/`),
   jamais un placeholder générique.
+- Ne jamais copier du contenu de chapitre dans `site/` : le site deviendrait une seconde
+  source de vérité et divergerait.
+- `npm` reste confiné à `site/`. Aucun `package.json` ailleurs dans le dépôt.

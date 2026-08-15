@@ -16,9 +16,30 @@ code, tester, reviewer, produire une PR, puis décider - selon des policies et d
 évaluations - de continuer automatiquement ou de demander une validation humaine. Voir
 [`ressources/prd/01-PRD.md`](ressources/prd/01-PRD.md) pour le raisonnement complet.
 
+## Version web du parcours
+
+Le parcours se lit aussi comme un site :
+<https://tiamat-azure.github.io/agentic-cicd-factory/> - navigation par chapitre,
+recherche, thème clair/sombre, suivi de progression, solutions repliées.
+
+Le site est généré à partir des mêmes fichiers markdown, qui restent la source de vérité :
+aucun contenu n'est dupliqué.
+
+```sh
+cd site
+npm ci        # dépendances du site (Node 22+)
+npm run dev   # http://localhost:4321/agentic-cicd-factory/
+npm run build # sortie statique dans site/dist/
+```
+
+Détails : [`site/README.md`](site/README.md).
+
 ## Prérequis
 
-Voir [`00-setup/`](00-setup/).
+- Pour suivre les chapitres : voir [`00-setup/`](00-setup/) (Python 3.11+ via `uv`, une
+  clé LLM cloud ou Ollama).
+- Pour construire le site en local : Node.js 22+ et `npm` - uniquement pour `site/`, le
+  code des chapitres reste géré par `uv`.
 
 ## Sommaire
 
