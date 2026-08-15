@@ -1,6 +1,6 @@
-# 01.3 - State et terminaison
+# 🏁 01.3 - State et terminaison
 
-## Pourquoi un state explicite
+## ❓ Pourquoi un state explicite
 
 Naïvement, le state d'un agent = la liste des messages. C'est vrai au début, et faux dès
 que tu vises la production, pour trois raisons :
@@ -26,7 +26,7 @@ D'où la distinction fondamentale :
 > **Contexte ⊂ State.** Confondre les deux est la cause n°1 des agents qui explosent en
 > coût. Retiens cette phrase, on la réutilisera au chapitre 06.
 
-## Anatomie minimale
+## 🧬 Anatomie minimale
 
 ```python
 @dataclass
@@ -48,7 +48,7 @@ C'est volontairement pauvre. Chaque chapitre suivant y ajoutera un champ :
 | 07       | `trace_id`, `spans`       |
 | 09       | `approbations_requises`   |
 
-## Les conditions de terminaison
+## 🚦 Les conditions de terminaison
 
 Un agent doit avoir **au moins trois** conditions d'arrêt. Une seule ne suffit jamais.
 
@@ -61,7 +61,7 @@ Un agent doit avoir **au moins trois** conditions d'arrêt. Une seule ne suffit 
 | Timeout                | garde-fou | latence dépassée                        | échec          |
 | Erreur non rattrapable | garde-fou | ex. auth invalide                       | échec          |
 
-### Naturelle vs explicite
+### ⚖️ Naturelle vs explicite
 
 - **Naturelle** : simple, mais ambiguë - le modèle a-t-il fini, ou abandonné ?
 - **Explicite** (`terminer(statut, resume)`) : le modèle doit déclarer son statut. Bien
@@ -73,7 +73,7 @@ Un agent doit avoir **au moins trois** conditions d'arrêt. Une seule ne suffit 
 Nous implémentons les deux dans la demo 3, et l'exercice 3 te fait basculer sur
 l'explicite.
 
-## Les 3 pathologies de boucle
+## ⚠️ Les 3 pathologies de boucle
 
 ```text
 1. PING-PONG      : le modèle rappelle le même tool avec les mêmes args
@@ -92,7 +92,7 @@ l'explicite.
 Dans la demo 3, la boucle logue nom + args à chaque tour : c'est déjà un détecteur de
 ping-pong à l'œil nu, et l'ancêtre direct des traces du chapitre 07.
 
-## À retenir
+## 💡 À retenir
 
 1. `contexte ⊂ state`.
 1. Trois conditions d'arrêt minimum, dont au moins un garde-fou dur.

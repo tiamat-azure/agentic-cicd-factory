@@ -1,4 +1,4 @@
-# Bac à sable
+# 🏖️ Bac à sable
 
 Faux dépôt servant de terrain de jeu à l'Agent v0.1.
 

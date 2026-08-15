@@ -1,6 +1,6 @@
-# 03 - Workflows & orchestration
+# 🕸️ 03 - Workflows & orchestration
 
-## Objectifs pédagogiques
+## 🎯 Objectifs pédagogiques
 
 - Introduire LangGraph comme runtime d'orchestration (sans en devenir expert).
 - Maîtriser les concepts : State, Node, Edge, Conditional Edge, Checkpoint, Human
@@ -8,11 +8,11 @@
 - Connaître les patterns Anthropic : sequential, parallel, evaluator-optimizer,
   orchestration.
 
-## Prérequis
+## ✅ Prérequis
 
 - Chapitre 02 (Agent v0.2 - Coding Agent).
 
-## Plan
+## 🗺️ Plan
 
 1. Pourquoi passer d'une boucle agent unique à un graphe de nodes explicites.
 1. State, Node, Edge, Conditional Edge.
@@ -21,12 +21,12 @@
 1. Construction du workflow REQUEST -> ANALYZE -> PLAN -> IMPLEMENT -> TEST -> REVIEW ->
    PR.
 
-## Ressources
+## 🔗 Ressources
 
 - Hugging Face Agents Course - module LangGraph.
 - Anthropic - Building Effective AI Agents (patterns d'orchestration).
 
-## Livrable
+## 📦 Livrable
 
 **Agentic CI/CD Factory v0.3** - un workflow déterministe, avec étapes explicites, capable
 de transformer une demande en modification de code.

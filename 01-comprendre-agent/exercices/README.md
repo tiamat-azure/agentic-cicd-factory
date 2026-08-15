@@ -1,4 +1,4 @@
-# Exercices - chapitre 01
+# ✏️ Exercices - chapitre 01
 
 Trois exercices progressifs. Le 3 est le livrable **Agent v0.1**. Travaille dans
 `exercices/`, compare avec `solutions/` **après** avoir tenté.
@@ -11,7 +11,7 @@ Trois exercices progressifs. Le 3 est le livrable **Agent v0.1**. Travaille dans
 
 ______________________________________________________________________
 
-## Exercice 1 - Quel niveau d'autonomie ? (papier)
+## 🪜 Exercice 1 - Quel niveau d'autonomie ? (papier)
 
 Pour chacun des 8 cas, choisis un niveau (0 script / 1 chain / 2 workflow / 3 agent / 4
 multi-agent) et **justifie en une phrase**. Écris tes réponses dans
@@ -30,7 +30,7 @@ multi-agent) et **justifie en une phrase**. Écris tes réponses dans
 
 ______________________________________________________________________
 
-## Exercice 2 - Ajouter un tool `chercher_dans_fichiers`
+## 🔧 Exercice 2 - Ajouter un tool `chercher_dans_fichiers`
 
 Dans une copie de `demos/03_agent_minimal/`, ajoute un tool qui cherche une chaîne dans
 les fichiers du bac à sable et renvoie les lignes correspondantes avec leur numéro.
@@ -57,11 +57,11 @@ ce qui change : c'est ta première leçon de tool design (approfondie au ch. 02)
 
 ______________________________________________________________________
 
-## Exercice 3 - Livrable Agent v0.1 : terminaison explicite et budget
+## 📦 Exercice 3 - Livrable Agent v0.1 : terminaison explicite et budget
 
 Objectif : rendre l'agent **gouvernable**, prérequis de tout le reste de la formation.
 
-### 3.a - Tool `terminer`
+### 🛑 3.a - Tool `terminer`
 
 Ajoute un tool :
 
@@ -85,18 +85,18 @@ Ajoute un tool :
 Il n'exécute rien : la boucle l'intercepte et remplit `state.statut`, `state.resultat`.
 Ajoute la mention correspondante dans le `SYSTEM_PROMPT`.
 
-### 3.b - Budget en tokens
+### 💰 3.b - Budget en tokens
 
 Ajoute `max_tokens_total` au state et une condition d'arrêt `budget_tokens_epuise()`.
 L'agent doit sortir proprement avec `statut="budget_epuise"`.
 
-### 3.c - Anti ping-pong
+### 🏓 3.c - Anti ping-pong
 
 Si la **même** action (nom + arguments) est demandée 2 fois d'affilée, ne la ré-exécute
 pas : renvoie comme observation un message explicite du type
 `"Tu viens d'exécuter cette action à l'identique. Voici le résultat précédent : ... "`.
 
-### 3.d - Journal exploitable
+### 📓 3.d - Journal exploitable
 
 À la fin du run, écris `run.json` :
 
@@ -114,7 +114,7 @@ pas : renvoie comme observation un message explicite du type
 > Ce fichier est ton premier artefact d'observabilité. Au chapitre 07, il deviendra une
 > trace OpenTelemetry ; au chapitre 08, l'entrée d'un jeu d'evals. Soigne-le.
 
-### Critères de validation du livrable
+### ✅ Critères de validation du livrable
 
 - [ ] L'agent termine via le tool `terminer` avec un statut machine-lisible.
 - [ ] Il s'arrête proprement sur budget itérations **et** sur budget tokens.
@@ -126,7 +126,7 @@ pas : renvoie comme observation un message explicite du type
 
 ______________________________________________________________________
 
-## Bonus (facultatif)
+## 🎁 Bonus (facultatif)
 
 - Fais tourner l'agent 5 fois de suite sur le même objectif. Le résultat est-il stable ?
   Note les écarts : tu viens de découvrir pourquoi les evals sont statistiques (ch. 08).

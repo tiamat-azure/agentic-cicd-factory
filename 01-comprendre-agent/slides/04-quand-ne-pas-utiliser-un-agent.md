@@ -1,6 +1,6 @@
-# 01.4 - Quand NE PAS utiliser un agent
+# 🚫 01.4 - Quand NE PAS utiliser un agent
 
-## L'arbre de décision
+## 🌳 L'arbre de décision
 
 ```text
 Le problème est-il résoluble sans LLM (regex, parser, script) ?
@@ -28,7 +28,7 @@ Le problème est-il résoluble sans LLM (regex, parser, script) ?
 > Règle : **"ça dépend de ce qu'on découvre en route"** est la seule justification valable
 > d'un agent. Tout le reste est du workflow déguisé.
 
-## Les 6 signaux "n'utilise pas d'agent"
+## 🚫 Les 6 signaux "n'utilise pas d'agent"
 
 1. **Le flux est déterministe.** Si tu peux dessiner le diagramme complet, code le
    diagramme. Un agent qui redécouvre à chaque exécution un chemin que tu connais est une
@@ -43,7 +43,7 @@ Le problème est-il résoluble sans LLM (regex, parser, script) ?
 1. **Le domaine ne tolère aucune variance.** Conformité, comptabilité, sécurité : le
    non-déterminisme est un défaut, pas une feature.
 
-## Les 4 signaux "un agent est justifié"
+## ✅ Les 4 signaux "un agent est justifié"
 
 1. **L'espace d'états est ouvert** : explorer un repo inconnu, chercher pourquoi un test
    échoue.
@@ -54,7 +54,7 @@ Le problème est-il résoluble sans LLM (regex, parser, script) ?
    mais tu sais lancer les tests. C'est le terrain idéal de l'agentique - et exactement
    pourquoi le CI/CD est un si bon fil rouge.
 
-## Application à notre Factory
+## 🏭 Application à notre Factory
 
 | Sous-système                      | Niveau retenu | Pourquoi                                       |
 | --------------------------------- | ------------- | ---------------------------------------------- |
@@ -67,7 +67,7 @@ Le problème est-il résoluble sans LLM (regex, parser, script) ?
 > Une usine agentic réussie contient **moins d'agents** qu'on ne le croit. La compétence
 > recherchée, c'est le placement du curseur, pas la maximisation de l'autonomie.
 
-## Le coût caché de l'agentique
+## 💸 Le coût caché de l'agentique
 
 Passer un composant en agentique t'oblige à financer, en plus :
 
@@ -82,7 +82,7 @@ Agent  =  boucle
 Si tu ne peux pas financer les quatre derniers, tu ne peux pas financer le premier. C'est
 le message central de cette formation, et la raison de l'ordre des chapitres.
 
-## À retenir
+## 💡 À retenir
 
 1. "Ça dépend de ce qu'on découvre en route" = seule justification d'un agent.
 1. Vérification facile + génération difficile = terrain idéal.

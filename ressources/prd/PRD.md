@@ -1,4 +1,4 @@
-## Le point clé d'abord
+## 🔑 Le point clé d'abord
 
 Les branches Git ne sont **pas** un bon outil de découpage pédagogique par chapitre. Une branche sert à isoler un travail temporaire destiné à être fusionné ou supprimé. Un chapitre, lui, est un contenu permanent qui doit coexister avec les autres. Utiliser des branches vous condamne à du cherry-pick permanent dès que vous corrigez une typo dans le README commun.
 
@@ -6,7 +6,7 @@ Il y a une exception, détaillée dans le scénario C.
 
 ---
 
-## Scénario A — Tout en dossiers numérotés sur `main`
+## 1️⃣ Scénario A — Tout en dossiers numérotés sur `main`
 
 ```
 formation-xxx/
@@ -27,14 +27,14 @@ formation-xxx/
 
 ---
 
-## Scénario B — Une branche par chapitre
+## 2️⃣ Scénario B — Une branche par chapitre
 
 **+** L'apprenant ne voit que son chapitre ; état du code progressif « prêt à l'emploi ».
 **−** Coût de maintenance qui explose : N branches à rebaser à chaque correction commune. Pas de vue d'ensemble. Les apprenants doivent maîtriser Git avant même de commencer. Vos PR n'ont plus de sens. En pratique, c'est le scénario qu'on abandonne au bout de trois semaines.
 
 ---
 
-## Scénario C — Dossiers + tags pour les jalons de code
+## 3️⃣ Scénario C — Dossiers + tags pour les jalons de code
 
 Structure du scénario A, mais quand la formation construit **une application unique de bout en bout** (chap. 3 ajoute l'auth, chap. 4 la base de données…), on ajoute un dossier `app/` versionné par tags : `v-ch03-fin`, `v-ch04-fin`.
 
@@ -43,14 +43,14 @@ Structure du scénario A, mais quand la formation construit **une application un
 
 ---
 
-## Scénario D — Deux repos (formateur privé / apprenants public)
+## 4️⃣ Scénario D — Deux repos (formateur privé / apprenants public)
 
 **+** Séparation nette : notes perso, corrigés, examens restent privés.
 **−** Double synchronisation manuelle, source de désynchronisation. Rarement rentable pour un formateur seul.
 
 ---
 
-## Ma recommandation
+## 👍 Ma recommandation
 
 **Scénario A, plus C si fil rouge applicatif.** Un seul repo, un seul `main`, découpage par dossiers numérotés.
 

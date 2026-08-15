@@ -1,6 +1,6 @@
-# AGENTS.md
+# 🤖 AGENTS.md
 
-## What this project does
+## 📖 What this project does
 
 Contenu (markdown) d'une formation, découpée en chapitres numérotés sur `main` (pas de
 branche par chapitre - voir `ressources/prd/PRD.md` pour le raisonnement). Chaque chapitre
@@ -8,7 +8,7 @@ est un dossier autonome avec ses slides, démos, exercices et solutions. Le parc
 chapitres + setup) suit un fil rouge unique, la "Agentic CI/CD Factory" - voir
 `ressources/prd/01-PRD.md` pour le raisonnement derrière ce parcours.
 
-## Commands
+## 💻 Commands
 
 Le contenu pédagogique est du markdown statique. Vérification des liens morts via CI
 (`.github/workflows/check-links.yml`), déclenchée sur push/PR vers `main`.
@@ -37,7 +37,7 @@ uv run pytest -q         # exécuter les tests
 uv add <paquet>          # ajouter une dépendance
 ```
 
-## Architecture
+## 🏗️ Architecture
 
 ```
 README.md          # sommaire du parcours, source de vérité des chapitres publiés
@@ -54,7 +54,7 @@ ressources/
 site/               # site Astro Starlight - AUCUN contenu pédagogique, voir site/README.md
 ```
 
-### Le site (`site/`)
+### 🌐 Le site (`site/`)
 
 Le site lit `../NN-*/**` au build via un loader Astro (`site/src/loaders/chapitres.ts`) :
 **il ne duplique jamais le contenu**. Conséquences à respecter :
@@ -67,7 +67,7 @@ Le site lit `../NN-*/**` au build via un loader Astro (`site/src/loaders/chapitr
   casser ces conventions d'écriture dans les `README.md` de chapitre.
 - Toute page issue de `solutions/` est repliée automatiquement côté site.
 
-### Les 12 chapitres et leur livrable (fil rouge Agentic CI/CD Factory)
+### 📚 Les 12 chapitres et leur livrable (fil rouge Agentic CI/CD Factory)
 
 | #   | Chapitre                                | Livrable                  |
 | --- | --------------------------------------- | ------------------------- |
@@ -87,7 +87,7 @@ Le site lit `../NN-*/**` au build via un loader Astro (`site/src/loaders/chapitr
 Chaque chapitre doit produire un livrable concret et cumulatif sur le même projet fil
 rouge - pas d'exercices isolés. Raisonnement complet : `ressources/prd/01-PRD.md`.
 
-## Code conventions
+## 📐 Code conventions
 
 - Un chapitre contenant du code déclare ses dépendances dans son propre `pyproject.toml`
   (+ `uv.lock` commité). Jamais de `requirements.txt`. Toute commande montrée à
@@ -113,15 +113,19 @@ rouge - pas d'exercices isolés. Raisonnement complet : `ressources/prd/01-PRD.m
   sans framework (ch. 01-02), workflow multi-agents (ch. 03-04), changement de LLM sans
   modifier l'agent (ch. 05), preuve par evals qu'une version est meilleure (ch. 06-08), PR
   générée automatiquement à partir d'une demande (ch. 11, gate final).
+- Tout titre markdown (`#`, `##`, ...) dans n'importe quel fichier `.md` du dépôt (hors
+  `site/`) doit être préfixé d'un émoji adéquat au sens du titre, suivi d'un espace, ex.
+  `## 🎯 Objectifs pédagogiques`. S'applique à tout nouveau fichier et à toute nouvelle
+  section ajoutée à un fichier existant.
 
-## Tests
+## 🧪 Tests
 
 La CI vérifie les liens morts et construit le site (`npm run build` échoue si un chapitre
 casse le loader) : c'est le filet de sécurité du contenu. Si un fil rouge applicatif
 (`app/`) est ajouté (scénario C du `ressources/prd/PRD.md`), ses exemples de code devront
 être exécutés en CI.
 
-## Known pitfalls
+## ⚠️ Known pitfalls
 
 - Ne pas utiliser de branche par chapitre pour du contenu permanent (coût de rebase qui
   explose - voir `ressources/prd/PRD.md`, scénario B).

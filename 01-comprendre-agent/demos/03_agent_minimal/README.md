@@ -1,4 +1,4 @@
-# Agent v0.1 - agent minimal sans framework
+# 🤖 Agent v0.1 - agent minimal sans framework
 
 ```sh
 cd demos/03_agent_minimal
@@ -6,7 +6,7 @@ uv run demos/03_agent_minimal/main.py
 uv run demos/03_agent_minimal/main.py "Combien de fichiers Python contient ce dépôt et que fait chacun ?"
 ```
 
-## Architecture
+## 🏗️ Architecture
 
 ```text
 main.py     point d'entrée, objectif
@@ -19,7 +19,7 @@ main.py     point d'entrée, objectif
 Aucune dépendance agentique : `requests` et `python-dotenv`, rien d'autre. C'est la
 condition du **Gate 1**.
 
-## Ce que cet agent ne sait pas encore faire
+## 🚧 Ce que cet agent ne sait pas encore faire
 
 | Manque                         | Chapitre qui le comble |
 | ------------------------------ | ---------------------- |

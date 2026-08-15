@@ -1,4 +1,4 @@
-# Solution - exercice 1 : classification
+# ✅ Solution - exercice 1 : classification
 
 > Ne lis ceci qu'après avoir écrit tes propres réponses.
 
@@ -13,18 +13,18 @@
 | 7   | Décider de merger sur `main`       | **0 - humain / policy** | Irréversible. Décision de gouvernance, pas de génération (ch. 09).                                          |
 | 8   | Migrer 200 fichiers, cas variés    | **2 ou 3**              | Workflow qui itère sur les fichiers, avec un **agent par fichier** si le cas est vraiment non déterministe. |
 
-## Les deux pièges
+## ⚠️ Les deux pièges
 
 - **Cas 4** : le seul vrai piège "pas de LLM". Beaucoup de gens répondent "chain".
 - **Cas 7** : "agent" est tentant. Mais une décision irréversible avec règles métier
   explicites n'est pas un problème de génération : c'est un problème de policy.
 
-## La lecture d'ensemble
+## 🔎 La lecture d'ensemble
 
 Sur 8 cas réalistes d'une usine CI/CD, **2 seulement** justifient un agent pur. C'est le
 ratio à garder en tête pour tout le reste de la formation.
 
-## Cas 8 : le pattern important
+## 🧩 Cas 8 : le pattern important
 
 ```text
 WORKFLOW (déterministe : itère sur les 200 fichiers, agrège, rapporte)

@@ -1,14 +1,14 @@
-# Agentic CI/CD Factory
+# 🏭 Agentic CI/CD Factory
 
 Formation - parcours, prérequis, sommaire.
 
-## Objectif
+## 🎯 Objectif
 
 Concevoir, produire et déployer une usine CI/CD nativement agentic : LLM-agnostic, hybride
 (cloud + local), optimisée en consommation de tokens, avec observabilité et évaluation
 structurée.
 
-## Fil rouge
+## 🧵 Fil rouge
 
 Un seul projet traverse les 12 chapitres : la **Agentic CI/CD Factory**, une plateforme
 capable de recevoir une demande de développement, l'analyser, la planifier, modifier le
@@ -16,7 +16,7 @@ code, tester, reviewer, produire une PR, puis décider - selon des policies et d
 évaluations - de continuer automatiquement ou de demander une validation humaine. Voir
 [`ressources/prd/01-PRD.md`](ressources/prd/01-PRD.md) pour le raisonnement complet.
 
-## Version web du parcours
+## 🌐 Version web du parcours
 
 Le parcours se lit aussi comme un site :
 <https://tiamat-azure.github.io/agentic-cicd-factory/> - navigation par chapitre,
@@ -34,14 +34,14 @@ npm run build # sortie statique dans site/dist/
 
 Détails : [`site/README.md`](site/README.md).
 
-## Prérequis
+## ✅ Prérequis
 
 - Pour suivre les chapitres : voir [`00-setup/`](00-setup/) (Python 3.11+ via `uv`, une
   clé LLM cloud ou Ollama).
 - Pour construire le site en local : Node.js 22+ et `npm` - uniquement pour `site/`, le
   code des chapitres reste géré par `uv`.
 
-## Sommaire
+## 📑 Sommaire
 
 Seuls les chapitres listés comme "prêt" ont un contenu au-delà du plan. Ce qui n'est pas
 listé n'est pas prêt.
@@ -62,12 +62,12 @@ listé n'est pas prêt.
 | 11  | [Automatic PR Factory](11-pr-factory/)                                | PR Factory v1.1           | _à rédiger_ |
 | 12  | [Production : Agent Platform](12-production-platform/)                | Factory v2.0              | _à rédiger_ |
 
-## Ressources
+## 🔗 Ressources
 
 Voir [`ressources/`](ressources/) - cheatsheets, glossaire, liens (jamais dupliqué dans
 les chapitres).
 
-## Structure
+## 🗂️ Structure
 
 Voir [`ressources/prd/PRD.md`](ressources/prd/PRD.md) pour le raisonnement derrière
 l'organisation du repo (Scénario A : dossiers numérotés sur `main`) et

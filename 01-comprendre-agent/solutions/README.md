@@ -1,4 +1,4 @@
-# Solutions - chapitre 01
+# ✅ Solutions - chapitre 01
 
 > À ouvrir **après** avoir tenté. Une solution lue trop tôt supprime l'apprentissage.
 
@@ -8,7 +8,7 @@
 | [`02-tool-recherche.py`](02-tool-recherche.py) | 2 - ajout d'un tool         |
 | [`03-agent-v0.1/`](03-agent-v0.1/)             | 3 - **livrable Agent v0.1** |
 
-## Utiliser la solution de l'exercice 3
+## 🧩 Utiliser la solution de l'exercice 3
 
 ```sh
 cp solutions/03-agent-v0.1/{agent.py,state.py} demos/03_agent_minimal/
@@ -16,7 +16,7 @@ uv run demos/03_agent_minimal/main.py
 cat run.json
 ```
 
-## Lecture critique attendue
+## 🔎 Lecture critique attendue
 
 La solution 3 est correcte mais pas parfaite. Sais-tu dire :
 
