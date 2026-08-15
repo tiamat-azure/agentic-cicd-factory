@@ -4,3 +4,11 @@ node_modules/
 .env
 dist/
 build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+run.json

@@ -1,0 +1,14 @@
+[project]
+name = "chapitre-01-comprendre-agent"
+version = "0.1.0"
+description = "Agent v0.1 - agent minimal sans framework (chapitre 01)"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.32",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]

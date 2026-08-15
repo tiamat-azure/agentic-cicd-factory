@@ -15,7 +15,7 @@ Ton objectif est en fait à l'intersection de 6 domaines :
 
 Je te conseille de commencer par **Agentic AI de Andrew Ng / DeepLearning.AI**.
 
-[Agentic AI — DeepLearning.AI / Andrew Ng](https://www.deeplearning.ai/courses/agentic-ai?utm_source=chatgpt.com)
+[Agentic AI — DeepLearning.AI / Andrew Ng](https://www.deeplearning.ai/courses/agentic-ai)
 
 C'est probablement **le meilleur point de départ pour toi**, parce que le cours couvre précisément les fondamentaux que tu veux maîtriser : décomposition de tâches, tool use, reflection, planning, multi-agent workflows, évaluation et mise en production. Il est actuellement annoncé à environ **7h45**, niveau intermédiaire. ([DeepLearning.ai][1])
 
@@ -57,7 +57,7 @@ Le cours DeepLearning.AI est excellent pour cette première étape. ([DeepLearni
 
 Ensuite je te conseille **Hugging Face Agents Course**.
 
-[Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction?utm_source=chatgpt.com)
+[Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
 
 Celui-ci est particulièrement intéressant **pour ton objectif LLM-agnostic**.
 
@@ -100,7 +100,7 @@ Pour **ton objectif d'usine CI/CD agentic**, je mettrais cette partie extrêmeme
 
 Je te recommande le cours gratuit :
 
-[LangChain Academy — Agent Observability & Evaluation](https://academy.langchain.com/courses/building-reliable-agents?utm_source=chatgpt.com)
+[LangChain Academy — Agent Observability & Evaluation](https://academy.langchain.com/courses/building-reliable-agents)
 
 Il est particulièrement intéressant car il traite explicitement :
 
@@ -158,7 +158,7 @@ LangChain souligne d'ailleurs un problème très intéressant : beaucoup d'équi
 
 Ensuite, lis **Building Effective AI Agents** d'Anthropic.
 
-[Building Effective AI Agents — Anthropic](https://resources.anthropic.com/building-effective-ai-agents?utm_source=chatgpt.com)
+[Building Effective AI Agents — Anthropic](https://resources.anthropic.com/building-effective-ai-agents)
 
 Je le recommande moins comme "cours" que comme **référentiel d'architecture**.
 
@@ -436,13 +436,13 @@ Je ferais l'inverse :
 
 C'est, à mon avis, beaucoup plus adapté à ton objectif d'architecte que de simplement "suivre un cours sur les agents". ([DeepLearning.ai][1])
 
-[1]: https://www.deeplearning.ai/courses/agentic-ai?utm_source=chatgpt.com "Agentic AI - DeepLearning.AI"
-[2]: https://huggingface.co/learn/agents-course/en/unit0/introduction?utm_source=chatgpt.com "Welcome to the 🤗 AI Agents Course · Hugging Face"
-[3]: https://academy.langchain.com/courses/building-reliable-agents?utm_source=chatgpt.com "Agent Observability & Evaluation: Build AI Agents Course"
-[4]: https://www.langchain.com/resources/llm-monitoring-observability?utm_source=chatgpt.com "LLM observability & monitoring: how to evaluate agent behavior"
-[5]: https://resources.anthropic.com/building-effective-ai-agents?utm_source=chatgpt.com "Building Effective AI Agents"
-[6]: https://github.com/openai/openai-agents-python/blob/main/docs/index.md?utm_source=chatgpt.com "openai-agents-python/docs/index.md at main · openai/openai-agents-python · GitHub"
-[7]: https://openai.github.io/openai-agents-js/guides/tracing/?utm_source=chatgpt.com "Tracing | OpenAI Agents SDK"
+[1]: https://www.deeplearning.ai/courses/agentic-ai "Agentic AI - DeepLearning.AI"
+[2]: https://huggingface.co/learn/agents-course/en/unit0/introduction "Welcome to the 🤗 AI Agents Course · Hugging Face"
+[3]: https://academy.langchain.com/courses/building-reliable-agents "Agent Observability & Evaluation: Build AI Agents Course"
+[4]: https://www.langchain.com/resources/llm-monitoring-observability "LLM observability & monitoring: how to evaluate agent behavior"
+[5]: https://resources.anthropic.com/building-effective-ai-agents "Building Effective AI Agents"
+[6]: https://github.com/openai/openai-agents-python/blob/main/docs/index.md "openai-agents-python/docs/index.md at main · openai/openai-agents-python · GitHub"
+[7]: https://openai.github.io/openai-agents-js/guides/tracing/ "Tracing | OpenAI Agents SDK"
 
 ---
 
@@ -1282,13 +1282,13 @@ Pour la **mise en pratique**.
 
 Il couvre aujourd'hui smolagents, LlamaIndex, LangGraph, RAG agentique, projet final et observabilité/évaluation. ([Hugging Face][8])
 
-[Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction?utm_source=chatgpt.com)
+[Hugging Face Agents Course](https://huggingface.co/learn/agents-course/en/unit0/introduction)
 
 ### 🥉 3. Anthropic — Building Effective AI Agents
 
 Pour développer ton **réflexe d'architecte** : workflow vs agent, single-agent, multi-agent, sequential, parallel, evaluator-optimizer, contexte et modularité. ([Ressources Anthropic][2])
 
-[Building Effective AI Agents — Anthropic](https://resources.anthropic.com/building-effective-ai-agents?utm_source=chatgpt.com)
+[Building Effective AI Agents — Anthropic](https://resources.anthropic.com/building-effective-ai-agents)
 
 ### 4. LangChain Academy
 
@@ -1296,7 +1296,7 @@ Pour **LangGraph + observability + evaluation**.
 
 Le cours d'observabilité/évaluation est particulièrement intéressant pour ton objectif : 29 leçons couvrant tracing, datasets, experiments, code-based evals, LLM-as-judge, pairwise evals et online evals. ([LangChain Academy][6])
 
-[Agent Observability & Evaluation — LangChain Academy](https://academy.langchain.com/courses/building-reliable-agents?utm_source=chatgpt.com)
+[Agent Observability & Evaluation — LangChain Academy](https://academy.langchain.com/courses/building-reliable-agents)
 
 ### 5. MCP + vLLM
 
@@ -1395,13 +1395,13 @@ Autrement dit, tu ne vas pas seulement **apprendre à construire une Agentic CI/
 
 C'est cette **boucle auto-améliorante mais contrôlée par les Evals et les policies** qui me paraît être le meilleur fil rouge pour atteindre ton objectif.
 
-[1]: https://huggingface.co/learn/agents-course/fr/unit1/introduction?utm_source=chatgpt.com "Introduction aux agents · Hugging Face"
-[2]: https://resources.anthropic.com/building-effective-ai-agents?utm_source=chatgpt.com "Building Effective AI Agents"
-[3]: https://huggingface.co/learn/agents-course/unit2/langgraph/introduction?utm_source=chatgpt.com "Introduction to LangGraph · Hugging Face"
-[4]: https://modelcontextprotocol.io/specification/2025-06-18/architecture?utm_source=chatgpt.com "Architecture - Model Context Protocol"
-[5]: https://docs.vllm.ai/en/latest/serving/online_serving/openai_compatible_server/?utm_source=chatgpt.com "OpenAI-Compatible Server - vLLM"
-[6]: https://academy.langchain.com/courses/building-reliable-agents?utm_source=chatgpt.com "Agent Observability & Evaluation: Build AI Agents Course"
-[7]: https://huggingface.co/learn/agents-course/fr/bonus-unit2/introduction?utm_source=chatgpt.com "Introduction · Hugging Face"
-[8]: https://huggingface.co/learn/agents-course/fr/unit0/introduction?utm_source=chatgpt.com "Bienvenue dans le cours 🤗 · Hugging Face"
+[1]: https://huggingface.co/learn/agents-course/fr/unit1/introduction "Introduction aux agents · Hugging Face"
+[2]: https://resources.anthropic.com/building-effective-ai-agents "Building Effective AI Agents"
+[3]: https://huggingface.co/learn/agents-course/unit2/langgraph/introduction "Introduction to LangGraph · Hugging Face"
+[4]: https://modelcontextprotocol.io/specification/2025-06-18/architecture "Architecture - Model Context Protocol"
+[5]: https://docs.vllm.ai/en/latest/serving/online_serving/openai_compatible_server/ "OpenAI-Compatible Server - vLLM"
+[6]: https://academy.langchain.com/courses/building-reliable-agents "Agent Observability & Evaluation: Build AI Agents Course"
+[7]: https://huggingface.co/learn/agents-course/fr/bonus-unit2/introduction "Introduction · Hugging Face"
+[8]: https://huggingface.co/learn/agents-course/fr/unit0/introduction "Bienvenue dans le cours 🤗 · Hugging Face"
 
 
