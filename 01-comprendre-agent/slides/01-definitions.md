@@ -1,6 +1,6 @@
-# 01.1 - Définitions : le spectre de l'autonomie
+# 📐 01.1 - Définitions : le spectre de l'autonomie
 
-## Le problème avec le mot "agent"
+## ❓ Le problème avec le mot "agent"
 
 > "Un agent, c'est un LLM qui utilise des outils."
 
@@ -14,7 +14,7 @@ La bonne question n'est pas _"est-ce qu'il y a des tools ?"_ mais :
 Si la réponse est "moi, le développeur, dans mon code" -> ce n'est pas un agent. Si la
 réponse est "le modèle, à l'exécution" -> c'est un agent.
 
-## Les 5 niveaux
+## 🪜 Les 5 niveaux
 
 | Niveau | Nom             | Qui décide du flux                 | Nb d'appels LLM | Terminaison      |
 | ------ | --------------- | ---------------------------------- | --------------- | ---------------- |
@@ -24,7 +24,7 @@ réponse est "le modèle, à l'exécution" -> c'est un agent.
 | 3      | **Agent**       | **le modèle**                      | **N inconnu**   | **le modèle**    |
 | 4      | Multi-agent     | un orchestrateur + les modèles     | N inconnu       | négociée         |
 
-### Niveau 0 - LLM application
+### 🔹 Niveau 0 - LLM application
 
 ```text
 prompt ──> LLM ──> réponse
@@ -32,7 +32,7 @@ prompt ──> LLM ──> réponse
 
 Exemple : "résume ce texte". Aucun état, aucune décision.
 
-### Niveau 1 - Chain
+### 🔗 Niveau 1 - Chain
 
 ```text
 prompt ──> LLM ──> transform ──> LLM ──> réponse
@@ -41,7 +41,7 @@ prompt ──> LLM ──> transform ──> LLM ──> réponse
 Le chemin est **écrit à l'avance**. Reproductible, testable, pas cher. Exemple : extraire
 les specs d'un ticket, puis générer un plan de test.
 
-### Niveau 2 - Workflow
+### 🔀 Niveau 2 - Workflow
 
 ```text
               ┌── branche A ──┐
@@ -55,7 +55,7 @@ toi**. Le LLM remplit des cases, il ne dessine pas le plan.
 > C'est le niveau le plus sous-estimé. La majorité des "agents" en production sont des
 > workflows, et c'est très bien : ils sont prévisibles et évaluables.
 
-### Niveau 3 - Agent
+### 🤖 Niveau 3 - Agent
 
 ```text
         ┌──────────────────────────────┐
@@ -67,12 +67,12 @@ Le modèle choisit **à chaque tour** quoi faire, et déclare lui-même la fin. 
 d'itérations n'est pas connu à l'écriture du code. C'est ça, et uniquement ça, qui fait
 l'agent.
 
-### Niveau 4 - Multi-agent
+### 👥 Niveau 4 - Multi-agent
 
 Plusieurs agents, chacun avec son propre prompt, ses propres tools, son propre budget, qui
 se passent du travail (handoff) ou sont coordonnés par un superviseur. -> Chapitre 03.
 
-## Ce qui change vraiment entre niveau 2 et niveau 3
+## 🔍 Ce qui change vraiment entre niveau 2 et niveau 3
 
 | Dimension    | Workflow             | Agent                                             |
 | ------------ | -------------------- | ------------------------------------------------- |
@@ -87,7 +87,7 @@ se passent du travail (handoff) ou sont coordonnés par un superviseur. -> Chapi
 > l'adaptabilité.** Tout le reste de cette formation (observabilité, evals, policies)
 > existe pour racheter la prévisibilité que tu viens de perdre.
 
-## Notre fil rouge
+## 🧵 Notre fil rouge
 
 La Agentic CI/CD Factory contiendra **les 5 niveaux à la fois** :
 
@@ -99,7 +99,7 @@ La Agentic CI/CD Factory contiendra **les 5 niveaux à la fois** :
 L'art n'est pas de tout rendre agentique. C'est de **choisir le niveau minimum qui résout
 le problème**.
 
-## À retenir
+## 💡 À retenir
 
 1. Un agent se définit par **qui décide**, pas par la présence de tools.
 1. Le nombre d'itérations inconnu à l'écriture = signature de l'agent.

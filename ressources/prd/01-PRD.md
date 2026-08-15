@@ -27,7 +27,7 @@ Et surtout : **ne cherche pas à devenir expert d'Andrew Ng**. Utilise-le comme 
 
 Je ferais plutôt ceci :
 
-### Niveau 1 — Comprendre les agents
+### 1️⃣ Niveau 1 — Comprendre les agents
 
 **Professeur : Andrew Ng**
 
@@ -53,7 +53,7 @@ Le cours DeepLearning.AI est excellent pour cette première étape. ([DeepLearni
 
 ---
 
-# Niveau 2 — Construire réellement des agents
+# 2️⃣ Niveau 2 — Construire réellement des agents
 
 Ensuite je te conseille **Hugging Face Agents Course**.
 
@@ -94,7 +94,7 @@ Le framework doit être remplaçable.
 
 ---
 
-# Niveau 3 — Le sujet que beaucoup négligent : Evals + Observability
+# 3️⃣ Niveau 3 — Le sujet que beaucoup négligent : Evals + Observability
 
 Pour **ton objectif d'usine CI/CD agentic**, je mettrais cette partie extrêmement haut dans la priorité.
 
@@ -154,7 +154,7 @@ LangChain souligne d'ailleurs un problème très intéressant : beaucoup d'équi
 
 ---
 
-# Niveau 4 — Architecture agentic : Anthropic
+# 4️⃣ Niveau 4 — Architecture agentic : Anthropic
 
 Ensuite, lis **Building Effective AI Agents** d'Anthropic.
 
@@ -219,7 +219,7 @@ Je te conseille **de ne pas faire 20 petits exercices indépendants**.
 
 Construis **un seul projet fil rouge** :
 
-## "Agentic Software Factory"
+## 🏭 "Agentic Software Factory"
 
 Par exemple :
 
@@ -326,7 +326,7 @@ eval_score
 
 Puis tu peux expérimenter :
 
-### Routing
+### 🔀 Routing
 
 ```text
 simple task  ──────► local 8B
@@ -334,7 +334,7 @@ medium task  ───────► local 32B
 complex task ───────► cloud frontier
 ```
 
-### Context engineering
+### 🧠 Context engineering
 
 ```text
                  ┌── system
@@ -353,7 +353,7 @@ plutôt que :
 "Voici tout le repository..."
 ```
 
-### Agent budget
+### 💰 Agent budget
 
 Tu peux même définir :
 
@@ -388,7 +388,7 @@ Je le structurerais ainsi :
 | **9**  | 📊 Evals + traces + coûts              | Industrialisation       |
 | **10** | 🔄 CI/CD agentic                       | Boucle autonome         |
 
-### Et surtout, je ne ferais PAS :
+### 🚫 Et surtout, je ne ferais PAS :
 
 ```text
 LangChain
@@ -542,7 +542,7 @@ Je conserverais **12 chapitres**, parce que cela permet de séparer proprement l
 
 ## 01 — 🧠 Comprendre réellement ce qu'est un Agent
 
-### Objectif
+### 🎯 Objectif
 
 Sortir de la définition marketing « un LLM qui utilise des outils ».
 
@@ -574,7 +574,7 @@ Et surtout :
 
 > **Quand NE PAS utiliser un agent ?**
 
-### Ressource principale
+### 📖 Ressource principale
 
 **Hugging Face — Agents Course, Unit 1**.
 
@@ -584,7 +584,7 @@ Complément essentiel :
 
 **Anthropic — Building Effective AI Agents**, notamment la distinction workflow / agent / multi-agent. ([Ressources Anthropic][2])
 
-### Construction
+### 🏗️ Construction
 
 Commencer **sans framework**.
 
@@ -620,7 +620,7 @@ user request
 
 # 02 — 🔧 Tools, Function Calling & environnement
 
-### Objectif
+### 🎯 Objectif
 
 Comprendre que la puissance d'un agent vient énormément de son **environnement d'action**.
 
@@ -645,7 +645,7 @@ Puis introduire :
 * idempotence
 * timeouts
 
-### Projet
+### 🧩 Projet
 
 L'agent reçoit :
 
@@ -688,7 +688,7 @@ Hugging Face propose justement un module LangGraph orienté construction de work
 
 Anthropic fournit parallèlement une excellente grille de patterns : sequential, parallel, evaluator-optimizer, orchestration, etc. ([Ressources Anthropic][2])
 
-### Tu construis
+### 🧩 Tu construis
 
 ```text
 REQUEST
@@ -747,7 +747,7 @@ Agent
 
 Le protocole MCP utilise une architecture host/client/server et permet aux serveurs d'exposer tools, resources et prompts, avec des frontières de sécurité explicites. ([Model Context Protocol][4])
 
-### À apprendre
+### 📖 À apprendre
 
 * Host
 * Client
@@ -805,7 +805,7 @@ model: qwen
 
 sans modifier l'agent.
 
-### À comparer
+### ⚖️ À comparer
 
 * Anthropic
 * OpenAI-compatible APIs
@@ -861,7 +861,7 @@ cost:
   max_request: 0.25
 ```
 
-### Puis Model Routing
+### 🔀 Puis Model Routing
 
 ```text
                      Task
@@ -1001,14 +1001,14 @@ Maintenant seulement, on autorise réellement l'agent à agir.
 
 À traiter :
 
-### Identity
+### 🪪 Identity
 
 ```text
 Agent ≠ User
 Agent ≠ Admin
 ```
 
-### Permissions
+### 🔑 Permissions
 
 ```text
 READ repository
@@ -1020,7 +1020,7 @@ DEPLOY production
 
 avec des niveaux différents.
 
-### Sandbox
+### 📦 Sandbox
 
 Le Coding Agent ne doit pas avoir accès arbitrairement à :
 
@@ -1031,7 +1031,7 @@ production
 credentials
 ```
 
-### Human-in-the-loop
+### 🙋 Human-in-the-loop
 
 Par exemple :
 
@@ -1153,7 +1153,7 @@ PR
 
 Avec un humain uniquement lorsque nécessaire.
 
-### La PR doit contenir automatiquement
+### 📋 La PR doit contenir automatiquement
 
 ```text
 Summary
@@ -1213,7 +1213,7 @@ Architecture cible :
                └───────────────────┘
 ```
 
-### Tu traites
+### 📥 Tu traites
 
 * scalabilité
 * queues
@@ -1232,7 +1232,7 @@ Architecture cible :
 
 ### 🎯 Livrable final
 
-# **Agentic CI/CD Factory v2.0**
+# 🏆 **Agentic CI/CD Factory v2.0**
 
 Une plateforme capable de :
 
@@ -1290,7 +1290,7 @@ Pour développer ton **réflexe d'architecte** : workflow vs agent, single-agent
 
 [Building Effective AI Agents — Anthropic](https://resources.anthropic.com/building-effective-ai-agents)
 
-### 4. LangChain Academy
+### 4️⃣ 4. LangChain Academy
 
 Pour **LangGraph + observability + evaluation**.
 
@@ -1298,7 +1298,7 @@ Le cours d'observabilité/évaluation est particulièrement intéressant pour to
 
 [Agent Observability & Evaluation — LangChain Academy](https://academy.langchain.com/courses/building-reliable-agents)
 
-### 5. MCP + vLLM
+### 5️⃣ 5. MCP + vLLM
 
 Pour les deux piliers de ton architecture :
 
@@ -1315,7 +1315,7 @@ MCP pour la standardisation des outils et vLLM pour exposer les modèles locaux 
 
 Je mettrais trois principes au-dessus de tout le parcours.
 
-### ① Framework-agnostic
+### 1️⃣ ① Framework-agnostic
 
 Tu dois toujours pouvoir expliquer :
 
@@ -1325,7 +1325,7 @@ C'est une compétence d'architecte.
 
 ---
 
-### ② Model-agnostic
+### 2️⃣ ② Model-agnostic
 
 Ton code métier ne doit jamais dire :
 
@@ -1347,7 +1347,7 @@ Cela te permettra ensuite de tester **Claude vs GPT vs Qwen vs DeepSeek vs modè
 
 ---
 
-### ③ Eval-first
+### 3️⃣ ③ Eval-first
 
 À partir du chapitre 7, **aucune amélioration ne devrait être considérée comme une amélioration sans mesure**.
 

@@ -1,6 +1,6 @@
-# 01.2 - La boucle Think -> Act -> Observe
+# 🔄 01.2 - La boucle Think -> Act -> Observe
 
-## L'intuition
+## 💡 L'intuition
 
 Un LLM est une fonction pure : `texte -> texte`. Il ne peut rien faire du monde. Un agent,
 c'est cette fonction **placée dans une boucle qui a accès au monde**.
@@ -17,9 +17,9 @@ c'est cette fonction **placée dans une boucle qui a accès au monde**.
    └───────────────────────────────────────────┘
 ```
 
-## Les 3 temps
+## ⏱️ Les 3 temps
 
-### 1. Think
+### 🧠 1. Think
 
 Le modèle reçoit : `system prompt + historique + observations` et produit soit :
 
@@ -29,7 +29,7 @@ Le modèle reçoit : `system prompt + historique + observations` et produit soit
 C'est le seul endroit où il y a du raisonnement. Tout le reste est de la plomberie
 déterministe - et c'est une bonne nouvelle : la plomberie, ça se teste.
 
-### 2. Act
+### 🖐️ 2. Act
 
 Ton code - pas le modèle - exécute l'action. Le modèle **demande**, le runtime
 **exécute**.
@@ -38,7 +38,7 @@ Ton code - pas le modèle - exécute l'action. Le modèle **demande**, le runtim
 > structurée. C'est ta boucle qui décide de l'honorer, de la refuser ou de demander une
 > validation humaine (-> ch. 09).
 
-### 3. Observe
+### 👁️ 3. Observe
 
 Le résultat de l'exécution est **réinjecté dans l'historique**, dans un message
 identifiable comme "résultat d'outil".
@@ -47,7 +47,7 @@ identifiable comme "résultat d'outil".
 > l'historique. Le modèle re-demande alors le même tool en boucle. Si ton agent répète la
 > même action, vérifie ça en premier.
 
-## Pseudo-code de référence
+## 🧑‍💻 Pseudo-code de référence
 
 ```python
 def run(objectif: str) -> str:
@@ -68,7 +68,7 @@ def run(objectif: str) -> str:
 Tout le chapitre 01 tient dans ces 12 lignes. Le reste de la formation consiste à rendre
 ces 12 lignes **observables, évaluables, gouvernées et scalables**.
 
-## ReAct : pourquoi "Reasoning + Acting"
+## 🔁 ReAct : pourquoi "Reasoning + Acting"
 
 Le pattern porte le nom de l'article _ReAct_ (2022). Son idée : entrelacer le raisonnement
 en langage naturel et les actions, plutôt que de planifier d'abord puis exécuter ensuite.
@@ -86,7 +86,7 @@ Deux variantes de mise en œuvre :
 Nous utilisons le **tool calling natif** dès la demo 3, et nous gardons le mode textuel en
 tête car il reste nécessaire pour certains modèles locaux (-> ch. 05).
 
-## Le format d'un tool
+## 🛠️ Le format d'un tool
 
 Un tool, c'est 3 choses, et seulement 3 :
 
@@ -110,7 +110,7 @@ Un tool, c'est 3 choses, et seulement 3 :
 > Une mauvaise description de tool coûte plus cher qu'un mauvais modèle. On y revient au
 > chapitre 02.
 
-## À retenir
+## 💡 À retenir
 
 1. Think = le modèle décide ; Act = ton code exécute ; Observe = le résultat retourne dans
    l'historique.

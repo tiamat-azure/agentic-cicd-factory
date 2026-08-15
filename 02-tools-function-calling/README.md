@@ -1,17 +1,17 @@
-# 02 - Tools, Function Calling & environnement
+# 🔧 02 - Tools, Function Calling & environnement
 
-## Objectifs pédagogiques
+## 🎯 Objectifs pédagogiques
 
 - Comprendre que la puissance d'un agent vient de son environnement d'action.
 - Construire des tools : filesystem, git, shell, pytest, HTTP, GitHub.
 - Maîtriser schémas, structured outputs, validation, gestion d'erreurs, permissions,
   idempotence, timeouts.
 
-## Prérequis
+## ✅ Prérequis
 
 - Chapitre 01 (Agent v0.1).
 
-## Plan
+## 🗺️ Plan
 
 1. Anatomie d'un tool : nom, description, schéma d'entrée/sortie.
 1. Structured output et validation (ex. Pydantic / JSON Schema).
@@ -20,7 +20,7 @@
 1. Construction des tools `list_files`, `read_file`, `write_file`, `run_tests`,
    `git_diff`.
 
-## Livrable
+## 📦 Livrable
 
 **Agent v0.2 - Coding Agent** - l'agent reçoit "Ajoute une fonction X au projet", modifie
 un petit repository et exécute ses tests.

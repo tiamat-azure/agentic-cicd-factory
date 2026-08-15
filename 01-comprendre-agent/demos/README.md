@@ -1,4 +1,4 @@
-# Demos - chapitre 01
+# 🎬 Demos - chapitre 01
 
 Exécute-les dans l'ordre. Chaque demo répond à une question laissée ouverte par la
 précédente.
@@ -9,7 +9,7 @@ précédente.
 | [`02_boucle_manuelle.py`](02_boucle_manuelle.py) | À quoi ressemblent Think / Act / Observe ? |
 | [`03_agent_minimal/`](03_agent_minimal/)         | Comment automatiser cette boucle ?         |
 
-## Préparation
+## ⚙️ Préparation
 
 ```sh
 cd 01-comprendre-agent
@@ -23,7 +23,7 @@ Vérifie d'abord que le bac à sable échoue bien, sans agent :
 uv run pytest -q demos/03_agent_minimal/sandbox
 ```
 
-## Exécution
+## ▶️ Exécution
 
 ```sh
 uv run demos/01_llm_brut.py
@@ -32,14 +32,14 @@ uv run demos/02_boucle_manuelle.py --sans-observation   # expérience du ping-po
 uv run demos/03_agent_minimal/main.py
 ```
 
-## Ordre de lecture du code de `03_agent_minimal/`
+## 📖 Ordre de lecture du code de `03_agent_minimal/`
 
 1. `agent.py` -> `Agent.run()` : **tout le chapitre est là**, lis-la en premier.
 1. `state.py` : ce que le runtime sait vs ce que le modèle voit.
 1. `tools.py` : le contrat d'un tool, et le bac à sable.
 1. `model.py` : l'abstraction model-agnostic (ancêtre du Model Gateway, ch. 05).
 
-## Preuve model-agnostic
+## 🔁 Preuve model-agnostic
 
 Le même agent, sans une ligne de code modifiée, sur deux fournisseurs :
 

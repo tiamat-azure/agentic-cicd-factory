@@ -1,4 +1,4 @@
-# Ressources
+# 🔗 Ressources
 
 Cheatsheets, glossaire, liens communs à toute la formation.
 
