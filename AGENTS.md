@@ -13,6 +13,17 @@ chapitres + setup) suit un fil rouge unique, la "Agentic CI/CD Factory" - voir
 Aucun build : contenu markdown statique. Vérification des liens morts via CI
 (`.github/workflows/check-links.yml`), déclenchée sur push/PR vers `main`.
 
+Le code des chapitres est en Python et **`uv` est le seul outil de build/exécution
+autorisé** (jamais `pip`, `python -m venv`, `poetry`, `conda`) :
+
+```sh
+cd NN-titre-reel
+uv sync                  # crée .venv + installe pyproject.toml (dont le groupe dev)
+uv run demos/xxx.py      # exécuter un script
+uv run pytest -q         # exécuter les tests
+uv add <paquet>          # ajouter une dépendance
+```
+
 ## Architecture
 
 ```
@@ -51,6 +62,12 @@ rouge - pas d'exercices isolés. Raisonnement complet : `ressources/prd/01-PRD.m
 
 ## Code conventions
 
+- Un chapitre contenant du code déclare ses dépendances dans son propre `pyproject.toml`
+  (+ `uv.lock` commité). Jamais de `requirements.txt`. Toute commande montrée à
+  l'apprenant, dans les slides, démos, énoncés d'exercices ou solutions, doit utiliser
+  `uv run` / `uv sync` - aucune activation manuelle de venv.
+- Dans le code, ne jamais invoquer `"python"` en sous-processus : utiliser
+  `sys.executable` pour rester correct sous l'environnement géré par `uv`.
 - Numéroter sur 2 chiffres (`01-`, `02-`, ...) - le tri lexicographique casse sinon.
 - Un `README.md` par chapitre : objectifs pédagogiques, durée estimée, prérequis, plan.
 - Ne jamais dupliquer une ressource commune dans un chapitre : elle vit dans

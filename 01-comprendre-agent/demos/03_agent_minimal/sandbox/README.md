@@ -6,7 +6,7 @@ Le module `facturation.py` calcule des totaux de facture. La suite de tests éch
 à l'agent de trouver pourquoi.
 
 ```sh
-python -m pytest -q
+uv run pytest -q demos/03_agent_minimal/sandbox
 ```
 
 > Ne corrige pas le bug toi-même : il est volontaire, et c'est l'objet de l'exercice.

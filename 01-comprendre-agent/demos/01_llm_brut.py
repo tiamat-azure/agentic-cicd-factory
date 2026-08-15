@@ -1,6 +1,6 @@
 """DEMO 1 - Un LLM seul (niveau 0). Constater ce qui manque.
 
-    python demos/01_llm_brut.py
+    uv run demos/01_llm_brut.py
 
 On pose au modèle une question dont la réponse est DANS le dépôt.
 Il n'a aucun tool : il ne peut que deviner.

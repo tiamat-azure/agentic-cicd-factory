@@ -46,7 +46,7 @@ Contraintes :
 Validation :
 
 ```sh
-python main.py "Où la constante TAUX_TVA est-elle utilisée ?"
+uv run demos/03_agent_minimal/main.py "Où la constante TAUX_TVA est-elle utilisée ?"
 ```
 
 Réussi si le modèle appelle `chercher_dans_fichiers` sans que tu le lui demandes

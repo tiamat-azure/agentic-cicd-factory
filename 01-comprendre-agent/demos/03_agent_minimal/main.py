@@ -1,6 +1,6 @@
 """Point d'entrée de l'Agent v0.1.
 
-    python main.py "Pourquoi la suite de tests échoue-t-elle ?"
+    uv run demos/03_agent_minimal/main.py "Pourquoi la suite de tests échoue-t-elle ?"
 """
 
 from __future__ import annotations

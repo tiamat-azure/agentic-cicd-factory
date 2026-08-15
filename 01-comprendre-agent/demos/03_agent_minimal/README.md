@@ -2,8 +2,8 @@
 
 ```sh
 cd demos/03_agent_minimal
-python main.py
-python main.py "Combien de fichiers Python contient ce dépôt et que fait chacun ?"
+uv run demos/03_agent_minimal/main.py
+uv run demos/03_agent_minimal/main.py "Combien de fichiers Python contient ce dépôt et que fait chacun ?"
 ```
 
 ## Architecture

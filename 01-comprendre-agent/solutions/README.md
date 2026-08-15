@@ -12,7 +12,7 @@
 
 ```sh
 cp solutions/03-agent-v0.1/{agent.py,state.py} demos/03_agent_minimal/
-cd demos/03_agent_minimal && python main.py
+uv run demos/03_agent_minimal/main.py
 cat run.json
 ```
 

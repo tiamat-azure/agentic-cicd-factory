@@ -1,6 +1,6 @@
 """DEMO 2 - La boucle jouée à la main.
 
-    python demos/02_boucle_manuelle.py
+    uv run demos/02_boucle_manuelle.py
 
 Ici le modèle a des tools, mais **c'est toi qui joues la boucle** : à chaque tour,
 le script s'arrête et te demande d'appuyer sur Entrée pour exécuter l'action
@@ -11,7 +11,7 @@ ce script avec `input()` remplacé par `while True`.
 
 Expérience obligatoire (option `--sans-observation`) :
 
-    python demos/02_boucle_manuelle.py --sans-observation
+    uv run demos/02_boucle_manuelle.py --sans-observation
 
 On n'ajoute PAS le résultat du tool à l'historique. Observe le ping-pong :
 le modèle redemande indéfiniment la même action. C'est l'erreur n°1 des débutants.

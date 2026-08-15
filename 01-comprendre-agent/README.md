@@ -14,7 +14,8 @@
 
 ## Prérequis
 
-- Chapitre 00 (environnement fonctionnel : Python 3.11+, une clé LLM cloud **ou** Ollama).
+- Chapitre 00 (environnement fonctionnel : Python 3.11+ géré par
+  [uv](https://docs.astral.sh/uv/), une clé LLM cloud **ou** Ollama).
 - Bases Python (fonctions, classes, boucles, `dict`/`json`).
 - Durée estimée : **3 h** (1 h théorie + 1 h demos + 1 h exercices).
 
@@ -57,9 +58,14 @@
 
 ```sh
 cd 01-comprendre-agent
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+uv sync                # crée .venv et installe les dépendances de pyproject.toml
 cp .env.example .env   # renseigne ANTHROPIC_API_KEY ou laisse le provider ollama
+```
+
+Tout script se lance ensuite avec `uv run` (pas d'activation manuelle du venv) :
+
+```sh
+uv run demos/01_llm_brut.py
 ```
 
 ## Ressources

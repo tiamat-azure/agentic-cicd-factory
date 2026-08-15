@@ -11,6 +11,7 @@ L'écriture arrive au chapitre 02, la gouvernance au chapitre 09.
 from __future__ import annotations
 
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any, Callable
 
@@ -56,7 +57,7 @@ def lire_fichier(chemin: str) -> str:
 def executer_tests() -> str:
     """Lance pytest dans le bac à sable et renvoie le verdict brut."""
     proc = subprocess.run(
-        ["python", "-m", "pytest", "-q"],
+        [sys.executable, "-m", "pytest", "-q"],
         cwd=SANDBOX,
         capture_output=True,
         text=True,

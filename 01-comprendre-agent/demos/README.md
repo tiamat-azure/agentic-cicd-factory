@@ -13,24 +13,23 @@ précédente.
 
 ```sh
 cd 01-comprendre-agent
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt pytest
+uv sync                 # dépendances + groupe dev (pytest), venv géré par uv
 cp .env.example .env    # renseigne ta clé, ou LLM_PROVIDER=ollama
 ```
 
 Vérifie d'abord que le bac à sable échoue bien, sans agent :
 
 ```sh
-cd demos/03_agent_minimal/sandbox && python -m pytest -q
+uv run pytest -q demos/03_agent_minimal/sandbox
 ```
 
 ## Exécution
 
 ```sh
-python demos/01_llm_brut.py
-python demos/02_boucle_manuelle.py
-python demos/02_boucle_manuelle.py --sans-observation   # expérience du ping-pong
-cd demos/03_agent_minimal && python main.py
+uv run demos/01_llm_brut.py
+uv run demos/02_boucle_manuelle.py
+uv run demos/02_boucle_manuelle.py --sans-observation   # expérience du ping-pong
+uv run demos/03_agent_minimal/main.py
 ```
 
 ## Ordre de lecture du code de `03_agent_minimal/`
@@ -45,8 +44,8 @@ cd demos/03_agent_minimal && python main.py
 Le même agent, sans une ligne de code modifiée, sur deux fournisseurs :
 
 ```sh
-LLM_PROVIDER=anthropic python main.py
-LLM_PROVIDER=ollama    python main.py
+LLM_PROVIDER=anthropic uv run demos/03_agent_minimal/main.py
+LLM_PROVIDER=ollama    uv run demos/03_agent_minimal/main.py
 ```
 
 Compare les traces : nombre d'itérations, ordre des tools, qualité du diagnostic. C'est ta
