@@ -1,0 +1,78 @@
+[identities.agent_code_writer]
+type = "agent"
+allowed_branches = ["agent/*"]
+forbidden_branches = ["main", "release/*"]
+
+[identities.human_maintainer]
+type = "human"
+can_approve = ["merge_pr", "deploy_staging", "deploy_production", "policy_change"]
+
+[identities.ci_runner]
+type = "service"
+can_execute = ["tests", "evals", "security_checks", "deploy_after_approval"]
+
+[sandbox.default]
+secrets = "deny"
+network = "restricted"
+max_tool_calls = 12
+max_minutes = 20
+writable_paths = ["agent/*", "09-security-governance/**"]
+readonly_paths = ["**"]
+
+[eval_thresholds]
+security_score_min = 0.90
+governance_regressions_max = 0
+critical_findings_max = 0
+
+[[rules]]
+action = "repo.read"
+actor = "agent_code_writer"
+decision = "auto"
+reason = "Reading repository content is required for analysis."
+
+[[rules]]
+action = "repo.write_branch"
+actor = "agent_code_writer"
+target = "agent/*"
+decision = "auto"
+requires = ["sandbox.default", "evals.security_score_min"]
+reason = "The agent may write only to dedicated branches when evals are healthy."
+
+[[rules]]
+action = "repo.create_pr"
+actor = "agent_code_writer"
+decision = "auto"
+requires = ["tests.pass", "evals.security_score_min"]
+reason = "A pull request is a proposal, not an irreversible change."
+
+[[rules]]
+action = "repo.merge_pr"
+actor = "agent_code_writer"
+decision = "deny"
+reason = "Merging into a protected branch remains a human or CI/CD responsibility."
+
+[[rules]]
+action = "deploy.production"
+actor = "agent_code_writer"
+decision = "deny"
+reason = "The agent can prepare evidence, but cannot deploy production."
+
+[[rules]]
+action = "deploy.production"
+actor = "ci_runner"
+decision = "human"
+requires = ["human_maintainer.approval", "tests.pass", "evals.security_score_min"]
+reason = "Production deployment requires explicit approval and passing gates."
+
+[[rules]]
+action = "secrets.read"
+actor = "agent_code_writer"
+decision = "deny"
+reason = "The coding agent must never read production or personal secrets."
+
+[[rules]]
+action = "policy.change"
+actor = "agent_code_writer"
+decision = "human"
+requires = ["human_maintainer.approval", "security_eval_cases.pass"]
+reason = "Changing governance changes the agent's power and requires review."

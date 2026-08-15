@@ -43,24 +43,24 @@ Détails : [`site/README.md`](site/README.md).
 
 ## 📑 Sommaire
 
-Seuls les chapitres listés comme "prêt" ont un contenu au-delà du plan. Ce qui n'est pas
-listé n'est pas prêt.
+Les chapitres listés ci-dessous sont prêts et contiennent un contenu au-delà du plan. Ce
+qui n'est pas listé n'est pas prêt.
 
-| #   | Chapitre                                                              | Livrable                  | Statut      |
-| --- | --------------------------------------------------------------------- | ------------------------- | ----------- |
-| 00  | [Setup](00-setup/)                                                    | Environnement fonctionnel | _à rédiger_ |
-| 01  | [Comprendre l'Agent](01-comprendre-agent/)                            | Agent v0.1                | **prêt**    |
-| 02  | [Tools, Function Calling & environnement](02-tools-function-calling/) | Agent v0.2 - Coding Agent | _à rédiger_ |
-| 03  | [Workflows & orchestration](03-workflows-orchestration/)              | Factory v0.3              | _à rédiger_ |
-| 04  | [MCP](04-mcp/)                                                        | Tools via MCP             | _à rédiger_ |
-| 05  | [LLM Agnostic](05-llm-agnostic/)                                      | Model Gateway v0.5        | _à rédiger_ |
-| 06  | [Token Engineering & Model Routing](06-token-engineering-routing/)    | Model Router v0.6         | _à rédiger_ |
-| 07  | [Observability & Tracing](07-observability-tracing/)                  | Observability v0.7        | _à rédiger_ |
-| 08  | [Evaluation Engineering](08-evaluation-engineering/)                  | Evaluation Framework v0.8 | _à rédiger_ |
-| 09  | [Agent Security & Governance](09-security-governance/)                | Policy Engine v0.9        | _à rédiger_ |
-| 10  | [Agentic CI/CD](10-agentic-cicd/)                                     | Factory v1.0              | _à rédiger_ |
-| 11  | [Automatic PR Factory](11-pr-factory/)                                | PR Factory v1.1           | _à rédiger_ |
-| 12  | [Production : Agent Platform](12-production-platform/)                | Factory v2.0              | _à rédiger_ |
+| #   | Chapitre                                                              | Livrable                   | Statut   |
+| --- | --------------------------------------------------------------------- | -------------------------- | -------- |
+| 00  | [Setup](00-setup/)                                                    | Environnement fonctionnel  | **prêt** |
+| 01  | [Comprendre l'Agent](01-comprendre-agent/)                            | Agent v0.1                 | **prêt** |
+| 02  | [Tools, Function Calling & environnement](02-tools-function-calling/) | Agent v0.2 - Coding Agent  | **prêt** |
+| 03  | [Workflows & orchestration](03-workflows-orchestration/)              | Factory v0.3               | **prêt** |
+| 04  | [MCP](04-mcp/)                                                        | Agentic CI/CD Factory v0.4 | **prêt** |
+| 05  | [LLM Agnostic](05-llm-agnostic/)                                      | Model Gateway v0.5         | **prêt** |
+| 06  | [Token Engineering & Model Routing](06-token-engineering-routing/)    | Model Router v0.6          | **prêt** |
+| 07  | [Observability & Tracing](07-observability-tracing/)                  | Observability v0.7         | **prêt** |
+| 08  | [Evaluation Engineering](08-evaluation-engineering/)                  | Evaluation Framework v0.8  | **prêt** |
+| 09  | [Agent Security & Governance](09-security-governance/)                | Policy Engine v0.9         | **prêt** |
+| 10  | [Agentic CI/CD](10-agentic-cicd/)                                     | Factory v1.0               | **prêt** |
+| 11  | [Automatic PR Factory](11-pr-factory/)                                | PR Factory v1.1            | **prêt** |
+| 12  | [Production : Agent Platform](12-production-platform/)                | Factory v2.0               | **prêt** |
 
 ## 🔗 Ressources
 
