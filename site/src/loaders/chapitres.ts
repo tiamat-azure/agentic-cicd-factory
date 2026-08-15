@@ -72,7 +72,8 @@ function ordreDepuisNom(nom: string) {
 }
 
 /** Réécrit les liens relatifs du dépôt vers les routes du site. */
-function reecrireLiens(markdown: string, dossierDeLEntree: string) {
+function reecrireLiens(markdown: string, dossierDeLEntree: string, base: string) {
+  const prefixeBase = base.replace(/\/$/, '');
   return markdown.replace(/\]\(([^)\s]+)(\s+"[^"]*")?\)/g, (tout, cible: string, titre = '') => {
     if (/^(https?:|mailto:|#|\/)/.test(cible)) return tout;
     const [chemin, ancre = ''] = cible.split('#');
@@ -80,7 +81,7 @@ function reecrireLiens(markdown: string, dossierDeLEntree: string) {
     let resolu = posix.normalize(posix.join(dossierDeLEntree, chemin));
     resolu = resolu.replace(/\.mdx?$/, '').replace(/\/?README$/i, '');
     resolu = resolu.replace(/\/$/, '');
-    const url = '/' + resolu + (ancre ? '#' + ancre : '');
+    const url = prefixeBase + '/' + resolu + (ancre ? '#' + ancre : '');
     return `](${url}${titre})`;
   });
 }
@@ -127,7 +128,7 @@ type Entree = {
   data: Record<string, unknown>;
 };
 
-async function construireEntrees(): Promise<Entree[]> {
+async function construireEntrees(base: string): Promise<Entree[]> {
   const entrees: Entree[] = [];
 
   // --- Page d’accueil : le README racine, source de vérité du sommaire ---
@@ -136,7 +137,7 @@ async function construireEntrees(): Promise<Entree[]> {
   entrees.push({
     id: 'index',
     fichier: join(RACINE, 'README.md'),
-    markdown: reecrireLiens(accueil.corps, '.'),
+    markdown: reecrireLiens(accueil.corps, '.', base),
     data: {
       title: accueil.titre ?? 'Agentic CI/CD Factory',
       description: 'Parcours en 12 chapitres pour construire une usine CI/CD nativement agentic.',
@@ -201,7 +202,7 @@ async function construireEntrees(): Promise<Entree[]> {
         const t = extraireTitre(brut);
         // « 01 - Comprendre… » : le numéro est déjà porté par la sidebar.
         titre = (t.titre ?? titreDepuisNom(nomFichier)).replace(/^\d{2}(\.\d+)?\s*[-–]\s*/, '');
-        markdown = reecrireLiens(t.corps, `${chapitre}/${rel.slice(0, rel.lastIndexOf('/') + 1)}`);
+        markdown = reecrireLiens(t.corps, `${chapitre}/${rel.slice(0, rel.lastIndexOf('/') + 1)}`, base);
       }
 
       if (estReadmeChapitre) {
@@ -234,9 +235,9 @@ async function construireEntrees(): Promise<Entree[]> {
 }
 
 async function charger(context: LoaderContext) {
-  const { store, parseData, renderMarkdown, logger } = context;
+  const { store, parseData, renderMarkdown, logger, config } = context;
   store.clear();
-  const entrees = await construireEntrees();
+  const entrees = await construireEntrees(config.base);
 
   for (const entree of entrees) {
     const data = await parseData({ id: entree.id, data: entree.data, filePath: entree.fichier });
