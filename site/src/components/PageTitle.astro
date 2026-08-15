@@ -1,0 +1,72 @@
+---
+/**
+ * Surcharge du titre de page Starlight : ajoute, en tête de chaque chapitre,
+ * le bandeau « Livrable », les badges (gate, durée) et les 3 principes
+ * directeurs du parcours.
+ */
+const { entry } = Astro.locals.starlightRoute;
+const { title, livrable, livrableDescription, duree, gate, chapitre, aVenir } = entry.data as any;
+
+const principes = [
+  {
+    icone: '🧩',
+    nom: 'Framework-agnostic',
+    texte: 'Aucun pattern n’est présenté comme propre à un framework.',
+  },
+  {
+    icone: '🔀',
+    nom: 'Model-agnostic',
+    texte: 'Jamais de code métier conditionné à un modèle : toujours via une abstraction.',
+  },
+  {
+    icone: '📊',
+    nom: 'Eval-first',
+    texte:
+      chapitre && Number(chapitre) >= 7
+        ? 'Toute évolution doit être mesurable via des evals, pas seulement affirmée meilleure.'
+        : 'Activé à partir du chapitre 07 : ici on pose les fondations.',
+  },
+];
+
+const estVueDEnsemble = entry.id.endsWith('/index');
+---
+
+<h1 id="_top">{title}</h1>
+
+{
+  livrable && (
+    <div class="livrable">
+      <span class="livrable-cle">Livrable</span>
+      <span class="livrable-valeur">{livrable}</span>
+      {livrableDescription && <span class="livrable-desc">{livrableDescription}</span>}
+    </div>
+  )
+}
+
+{
+  (gate || duree) && (
+    <div class="badges-parcours">
+      {gate && (
+        <span class="badge-parcours badge-gate">
+          🚩 Gate {gate.numero} · {gate.libelle}
+        </span>
+      )}
+      {duree && <span class="badge-parcours badge-duree">⏱ {duree}</span>}
+    </div>
+  )
+}
+
+{
+  estVueDEnsemble && !aVenir && (
+    <div class="principes">
+      {principes.map((p) => (
+        <div class="principe">
+          <div class="principe-nom">
+            {p.icone} {p.nom}
+          </div>
+          <div class="principe-texte">{p.texte}</div>
+        </div>
+      ))}
+    </div>
+  )
+}

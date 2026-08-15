@@ -1,0 +1,81 @@
+---
+/**
+ * Surcharge de la sidebar Starlight : ajoute une barre de progression globale
+ * et une case à cocher par page, persistées en `localStorage` (aucun backend).
+ */
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+---
+
+<div class="progression-parcours">
+  <div class="progression-entete">
+    <span>Progression</span>
+    <span data-progression-texte>0 %</span>
+  </div>
+  <div class="progression-barre"><i data-progression-barre style="width:0%"></i></div>
+</div>
+
+<Default><slot /></Default>
+
+<script>
+  const CLE = 'acf:progression';
+
+  function lire(): Record<string, boolean> {
+    try {
+      return JSON.parse(localStorage.getItem(CLE) ?? '{}');
+    } catch {
+      return {};
+    }
+  }
+
+  function ecrire(etat: Record<string, boolean>) {
+    localStorage.setItem(CLE, JSON.stringify(etat));
+  }
+
+  function decorer() {
+    const etat = lire();
+    const liens = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('#starlight__sidebar a[href]'),
+    );
+    let faits = 0;
+
+    for (const lien of liens) {
+      const cle = new URL(lien.href).pathname;
+      const termine = etat[cle] === true;
+      if (termine) faits++;
+
+      let case_ = lien.querySelector<HTMLElement>('.progression-case');
+      if (!case_) {
+        case_ = document.createElement('span');
+        case_.className = 'progression-case';
+        case_.setAttribute('role', 'checkbox');
+        case_.tabIndex = 0;
+        const basculer = (evenement: Event) => {
+          evenement.preventDefault();
+          evenement.stopPropagation();
+          const courant = lire();
+          courant[cle] = !courant[cle];
+          ecrire(courant);
+          decorer();
+        };
+        case_.addEventListener('click', basculer);
+        case_.addEventListener('keydown', (evenement) => {
+          if ((evenement as KeyboardEvent).key === 'Enter' || (evenement as KeyboardEvent).key === ' ')
+            basculer(evenement);
+        });
+        lien.prepend(case_);
+      }
+      case_.classList.toggle('est-terminee', termine);
+      case_.setAttribute('aria-checked', String(termine));
+      case_.title = termine ? 'Marquer comme non terminé' : 'Marquer comme terminé';
+    }
+
+    const pourcentage = liens.length ? Math.round((faits / liens.length) * 100) : 0;
+    const barre = document.querySelector<HTMLElement>('[data-progression-barre]');
+    const texte = document.querySelector<HTMLElement>('[data-progression-texte]');
+    if (barre) barre.style.width = `${pourcentage}%`;
+    if (texte) texte.textContent = `${pourcentage} %`;
+  }
+
+  decorer();
+  document.addEventListener('astro:after-swap', decorer);
+</script>
