@@ -4,7 +4,9 @@
 
 Contenu (markdown) d'une formation, découpée en chapitres numérotés sur `main` (pas de
 branche par chapitre - voir `ressources/prd/PRD.md` pour le raisonnement). Chaque chapitre
-est un dossier autonome avec ses slides, démos, exercices et solutions.
+est un dossier autonome avec ses slides, démos, exercices et solutions. Le parcours (12
+chapitres + setup) suit un fil rouge unique, la "Agentic CI/CD Factory" - voir
+`ressources/prd/01-PRD.md` pour le raisonnement derrière ce parcours.
 
 ## Commands
 
@@ -16,7 +18,7 @@ Aucun build : contenu markdown statique. Vérification des liens morts via CI
 ```
 README.md          # sommaire du parcours, source de vérité des chapitres publiés
 00-setup/           # pré-requis techniques avant chapitre 1
-NN-chapitre/        # un dossier par chapitre (01 à 12)
+NN-titre-reel/      # un dossier par chapitre (01 à 12), titre explicite du sujet
   README.md         #   objectifs, durée, prérequis, plan
   slides/
   demos/
@@ -24,6 +26,7 @@ NN-chapitre/        # un dossier par chapitre (01 à 12)
   solutions/
 ressources/
   prd/PRD.md        # raisonnement sur l'organisation du repo (branches vs dossiers)
+  prd/01-PRD.md     # raisonnement sur le parcours en 12 chapitres (fil rouge)
 ```
 
 ## Code conventions
@@ -47,5 +50,5 @@ Pas de tests automatisés au-delà de la CI de liens morts. Si un fil rouge appl
 
 - Ne pas utiliser de branche par chapitre pour du contenu permanent (coût de rebase qui
   explose - voir `ressources/prd/PRD.md`, scénario B).
-- Les dossiers `NN-chapitre/` sont des placeholders génériques : les renommer avec un
-  titre réel dès que le sujet du chapitre est défini.
+- Les dossiers de chapitre doivent toujours porter un titre réel (ex. `05-llm-agnostic/`),
+  jamais un placeholder générique.
