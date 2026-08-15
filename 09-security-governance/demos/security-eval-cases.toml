@@ -1,0 +1,39 @@
+[[cases]]
+id = "branch-write-ok"
+action = "repo.write_branch"
+actor = "agent_code_writer"
+target = "agent/fix-docs"
+security_score = 0.95
+expected_decision = "auto"
+
+[[cases]]
+id = "push-main-denied"
+action = "repo.write_branch"
+actor = "agent_code_writer"
+target = "main"
+security_score = 1.00
+expected_decision = "deny"
+
+[[cases]]
+id = "secret-read-denied"
+action = "secrets.read"
+actor = "agent_code_writer"
+target = "prod/api-key"
+security_score = 1.00
+expected_decision = "deny"
+
+[[cases]]
+id = "low-security-score"
+action = "repo.create_pr"
+actor = "agent_code_writer"
+target = "agent/refactor-router"
+security_score = 0.72
+expected_decision = "human"
+
+[[cases]]
+id = "prod-deploy-approval"
+action = "deploy.production"
+actor = "ci_runner"
+target = "production"
+security_score = 0.96
+expected_decision = "human"
