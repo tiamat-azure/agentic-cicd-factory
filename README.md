@@ -28,7 +28,7 @@ listé n'est pas prêt.
 | #   | Chapitre                                                              | Livrable                  | Statut      |
 | --- | --------------------------------------------------------------------- | ------------------------- | ----------- |
 | 00  | [Setup](00-setup/)                                                    | Environnement fonctionnel | _à rédiger_ |
-| 01  | [Comprendre l'Agent](01-comprendre-agent/)                            | Agent v0.1                | _à rédiger_ |
+| 01  | [Comprendre l'Agent](01-comprendre-agent/)                            | Agent v0.1                | **prêt**    |
 | 02  | [Tools, Function Calling & environnement](02-tools-function-calling/) | Agent v0.2 - Coding Agent | _à rédiger_ |
 | 03  | [Workflows & orchestration](03-workflows-orchestration/)              | Factory v0.3              | _à rédiger_ |
 | 04  | [MCP](04-mcp/)                                                        | Tools via MCP             | _à rédiger_ |
