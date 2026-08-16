@@ -10,6 +10,8 @@ import type { Loader, LoaderContext } from 'astro/loaders';
  */
 
 const RACINE = fileURLToPath(new URL('../../../', import.meta.url));
+const GITHUB_BLOB_BASE = 'https://github.com/tiamat-azure/agentic-cicd-factory/blob/main';
+const GITHUB_TREE_BASE = 'https://github.com/tiamat-azure/agentic-cicd-factory/tree/main';
 
 /** Extensions rendues comme pages. */
 const MARKDOWN = new Set(['.md', '.mdx']);
@@ -78,10 +80,30 @@ function reecrireLiens(markdown: string, dossierDeLEntree: string, base: string)
     if (/^(https?:|mailto:|#|\/)/.test(cible)) return tout;
     const [chemin, ancre = ''] = cible.split('#');
     if (!chemin) return tout;
-    let resolu = posix.normalize(posix.join(dossierDeLEntree, chemin));
-    resolu = resolu.replace(/\.mdx?$/, '').replace(/\/?README$/i, '');
+    const resoluBrut = posix.normalize(posix.join(dossierDeLEntree, chemin)).replace(/\/$/, '');
+    let resolu = resoluBrut.replace(/\.mdx?$/, '').replace(/\/?README$/i, '');
     resolu = resolu.replace(/\/$/, '');
-    const url = prefixeBase + '/' + resolu + (ancre ? '#' + ancre : '');
+    const routeChapitre = /^\d{2}-[a-z0-9-]+(?:\/|$)/.test(resolu);
+    const cibleRessources = /^ressources(?:\/|$)/.test(resolu);
+    const cibleSite = /^site(?:\/|$)/.test(resolu);
+    const cibleMarkdownHorsChapitre = !routeChapitre && /\.mdx?$/.test(resoluBrut);
+    const lienVersMarkdown = /\.mdx?$/.test(resoluBrut);
+    const lienVersReadme = /\/README\.mdx?$/i.test(resoluBrut);
+
+    let url: string;
+    if (cibleRessources || cibleMarkdownHorsChapitre) {
+      const githubPath = lienVersReadme ? resoluBrut : lienVersMarkdown ? resoluBrut : resolu;
+      const githubBase = lienVersMarkdown ? GITHUB_BLOB_BASE : GITHUB_TREE_BASE;
+      url = `${githubBase}/${githubPath}`;
+    } else if (cibleSite) {
+      const githubPath = lienVersReadme ? resoluBrut : lienVersMarkdown ? resoluBrut : resolu;
+      const githubBase = lienVersMarkdown ? GITHUB_BLOB_BASE : GITHUB_TREE_BASE;
+      url = `${githubBase}/${githubPath}`;
+    } else {
+      url = `${prefixeBase}/${resolu}`;
+    }
+
+    if (ancre) url += `#${ancre}`;
     return `](${url}${titre})`;
   });
 }
